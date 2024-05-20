@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  background-color: #eeeeee;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.content {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1800px; /* Set a maximum width to avoid extremely wide containers on large screens */
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh; /* Set the minimum height to 100% of the viewport height */
+  background: #3586ff; /* Gradient from #3586ff to #1a4fa4 from top to bottom */
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Add more styles as needed */
+
+.container_title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+.container_content {
+  font-size: 1.2em;
+  font-family: "Poppins", sans-serif;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+  .container_content {
+    width: 80%;
+  }
+}
+
+.form-group {
+  margin-bottom: 7%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: row; /* Display items in a column layout */
+  font-family: "Inter", sans-serif;
+  justify-content: space-between;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-group::before {
+    display: none;
+  }
+  .form-group {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+label {
+  margin-bottom: 0;
+}
+
+select,
+input {
+  padding: 10px;
+  font-size: 0.8em;
+  margin-bottom: 10px; /* Add some space between form elements */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-wrapper {
+  background-color: #bfbbd4;
+  width: 70%;
+  margin: 0 auto; /* Center the wrapper horizontally */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 30px; /* Optional: Add border-radius for rounded corners */
+  font-family: "Inter", sans-serif;
+  height: 60vh;
+}
+
+.form-group-inline {
+  display: flex;
+}
+@media only screen and (max-width: 600px) {
+  .form-group {
+    flex-direction: column; /* Change to a column layout on smaller screens */
+    align-items: center; /* Center items on smaller screens */
+  }
+}
+
+#menu-toggle {
+  /* Ensure the button is visible */
+  visibility: visible !important;
+  /* Ensure the button is not positioned off-screen */
+  left: 0 !important;
+}
+#mobile-menu {
+  /* Add styles for mobile menu appearance */
+  background-color: #9680b3;
+  padding: 10px; /* Adjust padding for spacing */
+  position: absolute; /* Adjust positioning as needed */
+  top: 60px; /* Adjust top position */
+  left: 0;
+  right: 0;
+  z-index: 99; /* Ensure the menu appears above other elements */
+}

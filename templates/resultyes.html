@@ -1,0 +1,258 @@
+{% extends 'base.html' %} {% block content %}
+<div class="flex justify-center mx-auto p-4 mt-6 sm:mt-0">
+  <div
+    class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full lg:w-3/5 items-center text-left flex flex-col"
+  >
+    <p class="text-2xl font-semibold mb-4">Result</p>
+    <div
+      class="resultyes-container flex shadow-md rounded-xl px-4 pt-6 pb-8 md:pb-4 mb-4 mr-4 md:ml-2"
+      style="background-color: #b62530; color: #fff"
+    >
+      <div
+        class="result-image-placeholder w-64 h-24 mr-4 pt-2 my-auto hidden md:block"
+      >
+        <img
+          src="{{ url_for('static', filename='alert.svg') }}"
+          alt="Result Image"
+        />
+      </div>
+      <p class="text-lg mr-4 mb-0 text-center font-semibold md:text-left">
+        AutiCheck has identified characteristics indicative of autism spectrum
+        traits based on the responses submitted. It is recommended that you seek
+        a comprehensive evaluation by a healthcare professional for further
+        assessment and guidance.
+      </p>
+    </div>
+
+    <p class="bg-gray-100 shadow-md text-center rounded-xl px-8 pt-6 pb-8 mb-4">
+      AutiCheck serves as a screening tool, generating results based on a
+      behavioral test designed to identify autistic traits. It is important to
+      note that the outcomes provided by the tool are indicative and not to be
+      taken as a formal diagnosis. If you have reservations regarding the
+      possibility of the toddler being on the autism spectrum, we recommend
+      engaging in a thoughtful discussion about your observations with a
+      qualified healthcare professional.
+    </p>
+
+    <p class="text-base font-bold mb-2">Summary of Answers:</p>
+    <div class="mb-4 text-left border-t-2 border-gray-300 mt-4">
+      <!-- Replace 'question1' and 'question2' with actual question keys -->
+      <div class="mb-1 border-b-2 border-gray-300 pb-1">
+        <p>
+          <span class="font-semibold">Sex:</span>
+          <span id="sexResult"></span>
+        </p>
+      </div>
+      <div class="mb-1 border-b-2 border-gray-300 pb-1">
+        <p>
+          <span class="font-semibold">Ethnicity:</span>
+          <span id="ethnicityResult"></span>
+        </p>
+      </div>
+      <div class="mb-1 border-b-2 border-gray-300 pb-1">
+        <p>
+          <span class="font-semibold">Age in months:</span>
+          <span id="ageResult"></span>
+        </p>
+      </div>
+      <div class="mb-1 border-b-2 border-gray-300 pb-1">
+        <p>
+          <span class="font-semibold">Who completed the test:</span>
+          <span id="whoCompletedResult"></span>
+        </p>
+      </div>
+      <div class="mb-1 border-b-2 border-gray-300 pb-1">
+        <p>
+          <span class="font-semibold"
+            >Are there any family members with ASD:</span
+          >
+          <span id="familyDiagnosedResult"></span>
+        </p>
+      </div>
+
+      <!-- Styling for each question and its result in rows -->
+      <div class="grid grid-cols-1 gap-2 mt-2">
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q1. Does your child look at you when you call his/her name?</span
+            >
+          </p>
+          <span id="q1Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q2. How easy is it for you to get eye contact with your
+              child?</span
+            >
+          </p>
+          <span id="q2Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q3. Does your child point to indicate that s/he wants
+              something?</span
+            >
+          </p>
+          <span id="q3Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q4. Does your child point to share interest with you?</span
+            >
+          </p>
+          <span id="q4Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold">Q5. Does your child pretend?</span>
+          </p>
+          <span id="q5Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q6. Does your child follow where you are looking?</span
+            >
+          </p>
+          <span id="q6Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q7. If you or someone else in the family is visibly upset, does
+              your child show signs of wanting to comfort them?</span
+            >
+          </p>
+          <span id="q7Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q8. Would you describe your child's first words as:</span
+            >
+          </p>
+          <span id="q8Result"></span>
+        </div>
+        <div class="mb-1 border-b-2 border-gray-300 pb-1">
+          <p>
+            <span class="font-semibold"
+              >Q9. Does your child use simple gestures?</span
+            >
+          </p>
+          <span id="q9Result"></span>
+        </div>
+        <div class="mb-1">
+          <p>
+            <span class="font-semibold"
+              >Q10. Does your child stare at nothing with no apparent
+              purpose?</span
+            >
+          </p>
+          <span id="q10Result"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log(sessionStorage);
+    const who_completed_the_test = sessionStorage.getItem(
+      "who_completed_the_test"
+    );
+    const family_diagnosed = sessionStorage.getItem("family_diagnosed");
+    const ageInMonths = sessionStorage.getItem("ageInMonths");
+    const ethnicity = sessionStorage.getItem("ethnicity");
+    const sex = sessionStorage.getItem("sex");
+    // Retrieve the stored options from sessionStorage with the keys 'q1', 'q2', etc.
+    const storedOption1 = sessionStorage.getItem("q1");
+    const storedOption2 = sessionStorage.getItem("q2");
+    const storedOption3 = sessionStorage.getItem("q3");
+    const storedOption4 = sessionStorage.getItem("q4");
+    const storedOption5 = sessionStorage.getItem("q5");
+    const storedOption6 = sessionStorage.getItem("q6");
+    const storedOption7 = sessionStorage.getItem("q7");
+    const storedOption8 = sessionStorage.getItem("q8");
+    const storedOption9 = sessionStorage.getItem("q9");
+    const storedOption10 = sessionStorage.getItem("q10");
+
+    // Update the content of the <span> elements with the retrieved options
+    const q1ResultElement = document.getElementById("q1Result");
+    if (storedOption1) {
+      q1ResultElement.innerText = storedOption1;
+    }
+
+    const q2ResultElement = document.getElementById("q2Result");
+    if (storedOption2) {
+      q2ResultElement.innerText = storedOption2;
+    }
+
+    const q3ResultElement = document.getElementById("q3Result");
+    if (storedOption3) {
+      q3ResultElement.innerText = storedOption3;
+    }
+
+    const q4ResultElement = document.getElementById("q4Result");
+    if (storedOption4) {
+      q4ResultElement.innerText = storedOption4;
+    }
+
+    const q5ResultElement = document.getElementById("q5Result");
+    if (storedOption5) {
+      q5ResultElement.innerText = storedOption5;
+    }
+
+    const q6ResultElement = document.getElementById("q6Result");
+    if (storedOption6) {
+      q6ResultElement.innerText = storedOption6;
+    }
+
+    const q7ResultElement = document.getElementById("q7Result");
+    if (storedOption7) {
+      q7ResultElement.innerText = storedOption7;
+    }
+
+    const q8ResultElement = document.getElementById("q8Result");
+    if (storedOption8) {
+      q8ResultElement.innerText = storedOption8;
+    }
+
+    const q9ResultElement = document.getElementById("q9Result");
+    if (storedOption9) {
+      q9ResultElement.innerText = storedOption9;
+    }
+
+    const q10ResultElement = document.getElementById("q10Result");
+    if (storedOption10) {
+      q10ResultElement.innerText = storedOption10;
+    }
+    const whoCompletedResultElement =
+      document.getElementById("whoCompletedResult");
+    if (who_completed_the_test) {
+      whoCompletedResultElement.innerText = who_completed_the_test;
+    }
+    const ethnicityResult = document.getElementById("ethnicityResult");
+    if (ethnicity) {
+      ethnicityResult.innerText = ethnicity;
+    }
+    const ageResult = document.getElementById("ageResult");
+    if (ageInMonths) {
+      ageResult.innerText = ageInMonths;
+    }
+    const sexResult = document.getElementById("sexResult");
+    if (sex) {
+      sexResult.innerText = sex;
+    }
+    const familyDiagnosedResult = document.getElementById(
+      "familyDiagnosedResult"
+    );
+    if (family_diagnosed) {
+      familyDiagnosedResult.innerText = family_diagnosed;
+    }
+  });
+</script>
+{% endblock %}

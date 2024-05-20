@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block content %}
+<div class="flex justify-center mx-auto p-4 mt-2 sm:mt-0">
+  <div class="text-2xl font-bold mb-4"></div>
+
+  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full lg:w-1/2">
+    <form method="POST" action="{{ url_for('diagnose') }}" id="answerForm">
+      <p class="text-lg font-semibold mb-4">
+        Has the respondent been formally assessed or diagnosed for autism by
+        licensed health professionals?
+      </p>
+
+      <input type="radio" id="A" name="diagnosed" value="A" class="hidden" />
+      <label for="A" class="cursor-pointer block mb-2 option-label" data-id="A"
+        >No, the respondent has never been formally assessed</label
+      >
+
+      <input type="radio" id="B" name="diagnosed" value="B" class="hidden" />
+      <label for="B" class="cursor-pointer block mb-2 option-label" data-id="B"
+        >Yes, the respondent has been assessed BUT autism was not
+        diagnosed</label
+      >
+
+      <input type="radio" id="C" name="diagnosed" value="C" class="hidden" />
+      <label for="C" class="cursor-pointer block mb-2 option-label" data-id="C"
+        >Yes, the respondent has been assessed AND autism was diagnosed
+      </label>
+
+      <div id="errorMessage" class="text-sm text-red-500 mb-2 hidden"></div>
+
+      <div class="flex items-center justify-between mt-4">
+        <button
+          type="submit"
+          id="viewResult"
+          class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline back-button"
+        >
+          View Result
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const labels = document.querySelectorAll(".option-label");
+    labels.forEach(function (label) {
+      label.addEventListener("click", function () {
+        labels.forEach(function (el) {
+          el.classList.remove("selected");
+        });
+        this.classList.add("selected");
+      });
+    });
+
+    const buttonText = document.getElementById("buttonText");
+    const errorMessage = document.getElementById("errorMessage");
+    const viewResult = document.getElementById("viewResult");
+    const popup = document.getElementById("popup");
+
+    viewResult.addEventListener("click", function () {
+      const selectedOption = document.querySelector(
+        'input[name="diagnosed"]:checked'
+      );
+      if (!selectedOption) {
+        errorMessage.innerText = "Please select an answer before proceeding.";
+        errorMessage.classList.remove("hidden");
+      } else {
+        answerForm.submit();
+      }
+    });
+  });
+</script>
+
+<style>
+  .option-label {
+    color: black;
+    padding: 0.75rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .option-label.selected {
+    background-color: #d2d6dc;
+  }
+</style>
+
+{% endblock %}
