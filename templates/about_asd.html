@@ -13,6 +13,7 @@
 
     
 </head>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <style>
    
 
@@ -35,17 +36,17 @@
           margin-top: 1.5em;
           margin-bottom: 20px; /* Add margin at the bottom for spacing */
           font-family: 'Poppins', sans-serif;
-          text-align: center; /* Align text to the center */
+          text-align: left; /* Align text to the center */
           font-weight: bold;
       }
       
   
       .container_content {
-          font-size: 1.2em; /* Adjust the font size of the paragraph */
+          font-size: 1em; /* Adjust the font size of the paragraph */
           font-family: 'Poppins', sans-serif;
-          width: 50%; /* Set the width to 70% of the container */
+          width: 90%; /* Set the width to 70% of the container */
           margin: 0 auto; /* Center the container_content */
-          text-align: center;
+          text-align: left;
       }
       .container_title h2 {
     display: inline; /* Ensure each part is treated individually */
@@ -92,6 +93,7 @@
           .container_content {
               font-size: 1em;
               width: 80%;
+              margin-top: -110px;
           }
   
           .start-button {
@@ -99,61 +101,7 @@
               padding: 8px 16px;
           }
       }
-  /* Wave */
-      .air{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
-    background-size: 1000px 100px
-  }
-  .air.air1{
-    animation: wave 30s linear infinite;
-    z-index: 1000;
-    opacity: 1;
-    animation-delay: 0s;
-    bottom: -5;
-  }
-   .air.air2{
-    animation: wave2 15s linear infinite;
-    z-index: 999;
-    opacity: 0.5;
-    animation-delay: -5s;
-    bottom: 5px;
-  }
-   .air.air3{
-    animation: wave 30s linear infinite;
-    z-index: 998;
-    opacity: 0.2;
-    animation-delay: -2s;
-    bottom: 10px;
-  }
-  .air.air4{
-    animation: wave2 5s linear infinite;
-    z-index: 997;
-    opacity: 0.7;
-    animation-delay: -5s;
-    bottom: 15px;
-  }
-  @keyframes wave{
-    0%{
-      background-position-x: 0px; 
-    }
-    100%{
-      background-position-x: 1000px; 
-    }
-  }
-  @keyframes wave2{
-    0%{
-      background-position-x: 0px; 
-    }
-    100%{
-      background-position-x: -1000px; 
-    }
-  }
-  /* Wave */
+
   </style>
 <body>
   <div class="content">
@@ -220,63 +168,136 @@
              
           </header>
           </div>
-          <div class="container_title mt-4">
-            <h2><span class="check">What is</span> <span class="auti">Auti</span><span class="auti">Check</span>?</h2>
-          </div>
-          
-        
-        <div class="container_content mt--4 text-left">
-            <p class = >AutiCheck is a
-              screening tool designed for toddlers aged 24-36 months to
-              detect Autism Spectrum Disorder (ASD). AutiCheck integrates
-              Convolutional Neural Networks (CNN) with the conventional
-              screening tool Q-CHAT 10, trained on a dataset containing
-              1054 screening results from Kaggle. The tool achieved
-              impressive metrics, with an accuracy of 99.33%, sensitivity
-              of 99.31%, and specificity of 99.38%. Furthermore, the
-              system was evaluated according to the ISO/IEC 25010
-              standard, receiving positive ratings for all eight assessed
-              characteristics, indicating high quality and effectiveness
-              in meeting user needs. This proposed system shows potential
-              in identifying ASD traits in toddlers, potentially
-              assisting parents and guardians in making decisions
-              regarding seeking a formal diagnosis from a doctor.</p>
-           
-            
+          <div class="grid grid-cols-1 gap-4 mx-6 md:grid-cols-2">
+            <div class="container_content text-left">
+                <div class="container_title">
+                    <h2><span class="check">What is</span> <span class="auti">Auti</span><span class="auti">Check</span>?</h2>
+                </div>
+                <p class="">AutiCheck is a screening tool designed for toddlers aged 24-36 months to detect Autism Spectrum Disorder (ASD). AutiCheck integrates Convolutional Neural Networks (CNN) with the conventional screening tool Q-CHAT 10, trained on a dataset containing 1054 screening results from Kaggle. The tool achieved impressive metrics, with an accuracy of 99.33%, sensitivity of 99.31%, and specificity of 99.38%. Furthermore, the system was evaluated according to the ISO/IEC 25010 standard, receiving positive ratings for all eight assessed characteristics, indicating high quality and effectiveness in meeting user needs. This proposed system shows potential in identifying ASD traits in toddlers, potentially assisting parents and guardians in making decisions regarding seeking a formal diagnosis from a doctor.</p>
+            </div>
+            <div id="chart" class="chart md:mt-32"></div>
         </div>
+        
+          
 
-  
+          <script>
+            var options = {
+              chart: {
+                type: 'bar',
+                height: 350,
+                width: '100%'
+              },
+              plotOptions: {
+                bar: {
+                  horizontal: false,
+                  dataLabels: {
+                    position: 'center', // Position the labels above the bars
+                    formatter: function(val) {
+                      return val.toFixed(2) + '%'; // Format the labels to show percentage with 2 decimal places
+                    },
+                    enabled: true, // Enable data labels
+                  }
+                }
+              },
+              colors: ['#002587'], // Set the bar color here
+              dataLabels: {
+                enabled: true, // Enable data labels
+                style: {
+                fontSize: '23px', // Adjust font size
+                colors: ['#C7F8FF'] // Change text color to dark blue
+            }
+              },
+              series: [{
+                data: [99.33, 99.31, 99.38]
+              }],
+              xaxis: {
+              categories: ['Accuracy', 'Sensitivity', 'Specificity'],
+              labels: {
+                  style: {
+                      colors: ['#C7F8FF', '#C7F8FF', '#C7F8FF'], // Change x-axis label color
+                      fontSize: '23px' // Change x-axis label font size
+                  }
+              }
+          },
+              yaxis: {
+                labels: {
+                  show: false // Hide y-axis labels
+                },
+                
+              },
+              grid: {
+                  show: false // Hide y-axis grid
+                },
+                tooltip: {
+            enabled: false // Disable tooltip
+        },
+         toolbar: {
+            show: false,
+            tools: {
+              download: false
+            } // Disable toolbar
+            
+        }
+            };
+        
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+        
+            chart.render();
+          </script>
 
       </div>
   </div>
 
-  <div class="h-auto bg-white">
-    <!-- Your existing content goes here -->
-    <div class="md:flex mx-auto p-8 w-full  md:w-4/5">
-      <!-- Right column with picture -->
-      <div class="md:w-1/2 w-full md:flex md:flex-col items-center">
-        <!-- Add your picture here -->
-         <img src="{{ url_for('static', filename='asd1.jpg') }}" alt="" class="rounded-xl">
-    </div>
-        <div class=" md:flex md:flex-col md:items-center md:w-1/2 w-full pl-6">
-            <h2 class="text-3xl font-bold mb-4 text-center mt-6">ASD Facts</h2>
-            <ul class="list-disc pl-6">
-                <li class="mb-2">Autism is found in all racial, ethnic, and socioeconomic groups.</li>
-                <li class="mb-2">The prevalence of autism can vary depending on factors such as age, gender, and race/ethnicity.</li>
-                <li class="mb-2">Boys are four times more likely to be diagnosed with autism than girls.</li>
-                <li class="mb-2">Girls with autism may be underdiagnosed due to differences in symptoms and presentation.</li>
-                <li class="mb-2">Individuals with autism are at increased risk for certain comorbidities, such as epilepsy, gastrointestinal disorders, and sleep disorders.</li>
-                <li class="mb-2">Children born to older parents and teenage mothers may be at increased risk for autism.</li>
-            </ul>
-            
-           
+  <div class="flex justify-center bg-white">
+  <div class="h-auto w-2/3 p-8">
+    <h1 class="text-3xl font-bold mb-8 text-center" style="color: #002587;">Authors of AuthiCheck</h1>
+    <div class="flex flex-wrap justify-center items-center font-medium">
+        <!-- First profile photo and name -->
+        <div class="flex flex-col items-center mr-4 mb-4">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500 mb-2">
+              <img src="{{ url_for('static', filename='kenji.jpg') }}" alt="Kenji">
+            </div>
+            <div>Kenji John Sondia</div>
         </div>
-        
-        
-         
-        
+        <!-- Second profile photo and name -->
+        <div class="flex flex-col items-center mr-4 mb-4">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500 mb-2">
+              <img src="{{ url_for('static', filename='joe.jpg') }}" alt="Kenji">
+            </div>
+            <div>Maria Joe Ann Gison</div>
+        </div>
+        <!-- Third profile photo and name -->
+        <div class="flex flex-col items-center mr-4 mb-4">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500 mb-2">
+              <img src="{{ url_for('static', filename='yen.jpg') }}" alt="Kenji">
+            </div>
+            <div>Mayennel Quintilla</div>
+        </div>
+        <!-- Fourth profile photo and name -->
+        <div class="flex flex-col items-center mr-4 mb-4">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500 mb-2">
+              <img src="{{ url_for('static', filename='kim.jpg') }}" alt="Kenji">
+            </div>
+            <div>Kim Jasper Tennan</div>
+        </div>
+        <!-- Fifth profile photo and name -->
+        <div class="flex flex-col items-center mr-4 mb-4">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500 mb-2">
+              <img src="{{ url_for('static', filename='eunice.jpg') }}" alt="Kenji">
+            </div>
+            <div>Eunice Bagsit</div>
+        </div>
+    </div>
+    <p class="text-center mt-8 mb-4 font-light">This is part of an undergraduate research paper by Bagsit, Gison, Quintilla, Sondia, and Tenan for <br>West Visayas State University - College of Information and Communications Technology.<br>All Rights Reserved.</p>
+
+    <!-- School logo -->
+    <div class="flex justify-center">
+        <img src="{{ url_for('static', filename='cict.png') }}" alt="West Visayas State University - College of Information and Communications Technology" class="h-28">
     </div>
 </div>
+</div>
+
+
   
 
   <footer>
