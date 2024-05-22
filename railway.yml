@@ -1,0 +1,3 @@
+plugins:
+  - name: railway/python
+    buildCommand: pip install -r requirements.txt
