@@ -2,14 +2,12 @@ from datetime import datetime
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from flask import Flask, render_template, request
 from database import db, toddler_asd_dataset, init_db
 from flask import Flask, render_template, request, redirect, session
 from flask import url_for
-from flask import session
 import joblib
 from keras.models import load_model
-from flask import Flask, render_template, request, g
+from flask import g
 
 
 
@@ -293,9 +291,3 @@ def about_asd():
 @app.route('/paper')
 def paper():
     return render_template('paper.html')
-
-    
-# Ensure that the application is run only when executed directly (not when imported)
-if __name__ == '__main__':
-    app.run(debug=True)
-  
