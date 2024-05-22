@@ -291,3 +291,6 @@ def about_asd():
 @app.route('/paper')
 def paper():
     return render_template('paper.html')
+
+
+    
