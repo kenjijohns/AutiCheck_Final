@@ -6,6 +6,12 @@
       "use": "@vercel/python"
     }
   ],
+  "functions": {
+    "setup": {
+      "runtime": "@vercel/python",
+      "includeFiles": "setup.sh"
+    }
+  },
   "routes": [
     {
       "src": "/(.*)",
