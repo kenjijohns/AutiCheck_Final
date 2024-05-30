@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@300;400;700&family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-
+    
 
     
 </head>
@@ -30,24 +30,7 @@
 }
 
 
-    .container_title {
-        font-size: 3em; /* Make "Auticheck" very big */
-        margin-top: 1.5em;
-        margin-bottom: 20px; /* Add margin at the bottom for spacing */
-        font-family: 'Poppins', sans-serif;
-        text-align: center; /* Align text to the center */
-        font-weight: bold;
-    }
-    
-
-    .container_content {
-        font-size: 1.2em; /* Adjust the font size of the paragraph */
-        font-family: 'Poppins', sans-serif;
-        width: 50%; /* Set the width to 70% of the container */
-        margin: 0 auto; /* Center the container_content */
-        text-align: center;
-    }
-    .container_title h2 {
+.container_title h2 {
   display: inline; /* Ensure each part is treated individually */
 }
 
@@ -58,46 +41,42 @@
 .container_title .check {
   color: #002587; /* Set the color of "CHECK" to dark blue */
 }
+.start-button {
+  /* Tailwind CSS classes for styling the button */
+  background-color: #0057B6;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 15px;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
 
+.start-button:hover {
+  background-color: #002F94;
+}
+   
+@media only screen and (max-width: 600px) {
+  .container{
+    width: 100%;
+  }
+  .container_title {
+    margin-top: 120px;
+    font-size: 2em;
+  }
+  .container_content {
+    font-size: 1em;
+    width: 80%;
+  }
+  .start-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
 
-
-    .start-button {
-        /* Tailwind CSS classes for styling the button */
-        background-color: #0057B6;
-        color: #fff;
-        padding: 10px 20px;
-        font-size: 1em;
-        border-radius: 15px;
-        display: inline-block;
-        margin-top: 30px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
-    }
-
-    .start-button:hover {
-        background-color: #002F94;
-    }
-    /* Responsive styles */
-    @media only screen and (max-width: 600px) {
-      .container{
-        width: 100%;
-      }
-        .container_title {
-            margin-top: 120px;
-            font-size: 2em;
-        }
-
-        .container_content {
-            font-size: 1em;
-            width: 80%;
-        }
-
-        .start-button {
-            font-size: 0.9em;
-            padding: 8px 16px;
-        }
     }
 /* Wave */
     .air{
@@ -157,44 +136,75 @@
 </style>
 <body>
   <div class="content">
-      <div class="container w-full max-w-none">
-        <section>
-          <div class="custom-nav pt-1 pb-1 pl-6 pr-6 mt--4">
-          <header>
-<nav class="bg-transparent border-gray-200 dark:bg-gray-900">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="{{ url_for('static', filename='logo.png') }}" alt="Philippine Flag" class="h-8" alt="Logo" />
-      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
-  </a>
-  <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse relative">
-      <button type="button" data-dropdown-toggle="language-dropdown-menu" class="md:text-white md:hover:text-gray-700 inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-white dark:text-white rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-      
-      <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="stroke: white;" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
-    </button>
-  </div>
-  <!-- Hamburger Menu -->
-  <div class="navbar-wrapper items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language" style= "margin-right: 60px;">
-    <ul class="z-50 flex flex-row font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:bg-transparent bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:relative w-4/5 absolute left-1/2 transform -translate-x-1/2">
-      <li class="whitespace-nowrap md:pl-10">
-          <a href="{{ url_for('about_asd')}}" class="block px-3 text-gray-900 md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-900 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-      </li>
-      <li class="ml-4"> <!-- Adjust the ml value as needed -->
-          <a href="{{ url_for('paper') }}" class="py-2 px-3 text-gray-900 md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-900 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Paper</a>
-      </li>
-      <!-- Add more list items as needed -->
-  </ul>
-  
-  
-  
-</div>
+    <div class="container w-full max-w-none">
+      <div class="custom-nav pt-1 pb-1 pl-6 pr-6 mt--4">
+        <header>
+          <nav class="bg-transparent border-gray-200 dark:bg-gray-900">
+              <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+              <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                  <img src="{{ url_for('static', filename='logo.png') }}" alt="Philippine Flag" class="logo h-8" alt="Logo" />
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+              </a>
+              <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse relative">
+                  <button type="button" data-dropdown-toggle="language-dropdown-menu" class="md:text-white md:hover:text-gray-700 inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-white dark:text-white rounded-lg cursor-pointer hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                  
+                  <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="stroke: white;" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+              </div>
+              <!-- Hamburger Menu -->
+              <div class="navigation navbar-wrapper items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-language" style= "margin-right: 100px;">
+                <ul class="z-50 flex flex-row font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:bg-transparent bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 md:relative w-4/5 absolute left-1/2 transform -translate-x-1/2">
+                  <li class="whitespace-nowrap md:pl-10">
+                      <a href="{{ url_for('about_asd')}}" class="block px-3 text-gray-900 md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-900 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                  </li>
+                  <li class="ml-4"> <!-- Adjust the ml value as needed -->
+                      <a href="{{ url_for('paper') }}" class="py-2 px-3 text-gray-900 md:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-900 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Paper</a>
+                  </li>
+                  <!-- Add more list items as needed -->
+              </ul>
+              
+              
+              
+            </div>
 
-  </div>
-</nav>
+              </div>
+          </nav>
+        </header>
+      </div>
+        <div class="container_title">
+            <h2><span class="auti">Auti</span><span class="check">Check</span></h2>
+        </div>
+        <div class="container_content mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- templates/index.html -->
+            <p class="home-description">
+                An <b>artificial intelligence-based (AI)</b> Autism Spectrum Disorder (ASD) screening system for toddlers from <b>18 months to 36 months old</b>
+            </p>
+        
+            <div class="mt-4">
+                <a href="{{ url_for('preliminary1') }}" class="start-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                    START THE TEST
+                </a>
+            </div>
+        </div>
+        <div class='air air1'></div>
+        <div class='air air2'></div>
+        <div class='air air3'></div>
+        <div class='air air4'></div>
+  </div> 
+</div>
+  
+
+  <footer>
+      
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
 <script>
   // Function to toggle the visibility of an element by ID
   function toggleVisibility(elementId) {
@@ -214,55 +224,6 @@
     toggleVisibility('navbar-language');
   });
 </script>
-
-
-
-             
-          </header>
-          </div>
-          <div class="container_title">
-            <h2><span class="auti">Auti</span><span class="check">Check</span></h2>
-          </div>
-          
-        
-          <div class="container_content mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- templates/index.html -->
-            <p class="text-lg md:text-xl lg:text-xl">
-                An <b>artificial intelligence-based (AI)</b> Autism Spectrum Disorder (ASD) screening system for toddlers from <b>18 months to 36 months old</b>
-            </p>
-        
-            <div class="mt-4">
-                <a href="{{ url_for('preliminary1') }}" class="start-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                    START THE TEST
-                </a>
-            </div>
-        </div>
-        
-
-        <div class='air air1'></div>
-        <div class='air air2'></div>
-        <div class='air air3'></div>
-        <div class='air air4'></div>
-        
-
-      </div>
-  </div>
-
-  <div class="h-auto bg-white">
-    
-    <div></div>
-   
-</div>
-  
-
-  <footer>
-      
-  </footer>
-
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html>
-
 <script>
   window.onload = function() {
     sessionStorage.clear();

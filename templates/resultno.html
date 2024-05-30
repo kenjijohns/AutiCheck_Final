@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <div class="flex justify-center mx-auto mt-6 p-4 sm:mt-0">
   <div
-    class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full lg:w-3/5 items-center text-left flex flex-col"
+    class="question-wrapper bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4 w-full lg:w-3/5 items-center text-left flex flex-col"
   >
-    <p class="text-2xl font-semibold mb-4">Result</p>
+    <p class="result-title ext-2xl font-semibold mb-4">Result</p>
     <div
       class="resultno-container flex shadow-md rounded-xl px-4 pt-6 pb-8 md:pb-0 mb-4 mr-4 md:ml-2"
       style="background-color: #5bc552; color: #fff"
@@ -16,13 +16,17 @@
           alt="{{ ('Result Image') }}"
         />
       </div>
-      <p class="text-lg mr-4 mb-0 text-center pt-2 font-semibold md:text-left">
+      <p
+        class="result-text text-lg mr-4 mb-0 text-center pt-2 font-semibold md:text-left"
+      >
         AutiCheck has not identified any characteristics indicative of autism
         spectrum traits based on the responses submitted.
       </p>
     </div>
 
-    <p class="bg-gray-100 shadow-md text-center rounded-xl px-8 pt-6 pb-8 mb-4">
+    <p
+      class="disclaimer bg-gray-100 shadow-md text-center rounded-xl px-8 pt-6 pb-8 mb-4"
+    >
       AutiCheck serves as a screening tool, generating results based on a
       behavioral test designed to identify autistic traits. It is important to
       note that the outcomes provided by the tool are indicative and not to be
@@ -32,7 +36,7 @@
       qualified healthcare professional.
     </p>
 
-    <p class="text-base font-bold mb-2">Summary of Answers:</p>
+    <p class="summary text-base font-bold mb-2">Summary of Answers:</p>
     <div class="mb-4 text-left border-t-2 border-gray-300 mt-4">
       <!-- Replace 'question1' and 'question2' with actual question keys -->
       <div class="mb-1 border-b-2 border-gray-300 pb-1">

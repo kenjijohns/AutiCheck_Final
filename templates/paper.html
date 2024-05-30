@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="flex justify-center mx-auto p-4 mt-20 sm:mt-0">
-  <div class="px-4 w-full lg:w-1/2">
-    <p class="text-white">
+  <div class="question-wrapper px-4 w-full lg:w-1/2">
+    <p class="paper-text text-white">
       Read our complete manuscript entitled
       <b
         >"Auticheck: An ASD screening tool for toddlers using Convolutional
@@ -12,7 +12,7 @@
 </div>
 
 <div class="flex justify-center mx-auto p-4 mt-20 sm:mt-0">
-  <div class="rounded px-4 py-4 mb-4 w-full lg:w-1/2">
+  <div class="paper rounded px-4 py-4 mb-4 w-full lg:w-1/2">
     <iframe
       src="{{ url_for('static', filename='manuscript.pdf') }}"
       width="100%"
@@ -23,7 +23,7 @@
 
 <div class="flex justify-center bg-white pb-6">
   <div class="h-auto w-full lg:w-2/3">
-    <p class="text-center mt-8 mb-4 font-light">
+    <p class="footer-text text-center mt-8 mb-4 font-light">
       This is part of an undergraduate research paper by Bagsit, Gison,
       Quintilla, Sondia, and Tenan for <br />West Visayas State University -
       College of Information and Communications Technology.<br />All Rights
@@ -35,7 +35,7 @@
       <img
         src="{{ url_for('static', filename='cict.png') }}"
         alt="West Visayas State University - College of Information and Communications Technology"
-        class="h-28"
+        class="school-logo h-28"
       />
     </div>
   </div>

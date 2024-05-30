@@ -43,23 +43,189 @@ h1 {
   margin-top: 0; /* Remove top margin */
   margin-bottom: 0; /* Remove bottom margin */
 }
-
-/* Add more styles as needed */
-
 .container_title {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 4em; /* Make "Auticheck" very big */
+  margin-top: 1em;
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
   font-family: "Poppins", sans-serif;
-  text-align: center;
+  text-align: center; /* Align text to the center */
   font-weight: bold;
 }
-
 .container_content {
   font-size: 1.2em;
   font-family: "Poppins", sans-serif;
   width: 50%;
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 1em;
+  text-align: center;
+}
+.home-description {
+  font-size: 1em;
+}
+.start-button {
+  /* Tailwind CSS classes for styling the button */
+  background-color: #0057b6;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 15px;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.start-button:hover {
+  background-color: #002f94;
+}
+.about-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem; /* Equivalent to gap-4 in Tailwind CSS */
+  margin-left: 1.5rem; /* Equivalent to mx-6 in Tailwind CSS */
+  margin-right: 1.5rem;
+}
+@media (max-width: 1200px) and (min-height: 2000px) {
+  .container_title {
+    font-size: 8rem !important;
+    margin-top: 3.5em !important;
+  }
+  .container_content {
+    font-size: 2.2em !important;
+    width: 90% !important;
+  }
+  .home-description {
+    font-size: 1.5em !important;
+  }
+  .start-button {
+    font-size: 1.5em !important;
+    border-radius: 20px !important;
+  }
+  .logo {
+    height: 100px !important;
+    margin-top: 20px !important;
+  }
+  .navigation {
+    margin-top: 20px !important;
+    font-size: 2.5em !important;
+    margin-right: 200px !important;
+  }
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* or any specific height you want */
+  }
+  form,
+  .question-wrapper,
+  .modal {
+    /* margin-top: 500px !important; */
+    width: 95% !important;
+    margin: 30px !important;
+  }
+  label {
+    font-size: 3rem !important;
+    font-weight: medium !important;
+    margin: 40px 0 15px 0 !important;
+  }
+  select,
+  input {
+    margin: 40px 0 40px 0 !important;
+    font-size: 3.5rem !important;
+    height: 100px !important;
+    font-weight: medium !important;
+  }
+  option {
+    font-size: 16px !important;
+  }
+  .back-next-button {
+    margin-top: 20px !important;
+    height: 90px !important;
+    font-size: 2.8rem !important;
+    width: 300px !important;
+  }
+  .question {
+    font-size: 3.5rem !important;
+    line-height: 1.5 !important;
+  }
+  #exampleDropdown p,
+  #buttonText {
+    font-size: 2.8rem !important;
+    line-height: 1.5;
+  }
+  .arrowIcon {
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+  }
+  .modal h3 {
+    font-size: 3.5rem !important;
+    line-height: 1.5 !important;
+  }
+  .modal p {
+    font-size: 2.8rem !important;
+    line-height: 1.5 !important;
+  }
+  .modal button {
+    padding-top: 35px !important;
+  }
+  .result-title,
+  .footer h1 {
+    font-size: 3.5rem !important;
+  }
+  .result-text,
+  .summary {
+    font-size: 2.5rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 30px !important;
+    margin-right: 50px !important;
+    text-align: center !important;
+  }
+  .question-wrapper img {
+    display: none;
+  }
+  .disclaimer {
+    font-size: 2rem !important;
+    line-height: 1.5 !important;
+    padding: 50px !important;
+  }
+  .question-wrapper span,
+  .paper-text {
+    font-size: 2rem !important;
+    line-height: 1.5 !important;
+  }
+  .about-wrapper {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    margin-top: -400px !important;
+  }
+  .authors-wrapper {
+    width: 90% !important;
+  }
+  .authors {
+    margin-top: 50px !important;
+  }
+  .authors .picture {
+    width: 200px !important;
+    height: 200px !important;
+    margin-right: 50px !important;
+  }
+  .name,
+  .footer-text {
+    margin-right: 50px !important;
+    font-size: 2rem !important;
+  }
+  .school-logo {
+    margin-top: 40px !important;
+    width: 400px !important;
+    height: auto !important;
+  }
+  .paper {
+    width: 95% !important;
+  }
+  .paper iframe {
+    height: 1500px !important;
+  }
 }
 
 /* Responsive styles */
@@ -68,27 +234,6 @@ h1 {
     width: 80%;
   }
 }
-
-.form-group {
-  margin-bottom: 7%;
-  margin-top: auto;
-  display: flex;
-  flex-direction: row; /* Display items in a column layout */
-  font-family: "Inter", sans-serif;
-  justify-content: space-between;
-  position: relative;
-}
-
-@media only screen and (max-width: 600px) {
-  .form-group::before {
-    display: none;
-  }
-  .form-group {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-}
-
 label {
   margin-bottom: 0;
 }
@@ -100,26 +245,6 @@ input {
   margin-bottom: 10px; /* Add some space between form elements */
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.form-wrapper {
-  background-color: #bfbbd4;
-  width: 70%;
-  margin: 0 auto; /* Center the wrapper horizontally */
-  padding: 20px; /* Add padding for spacing */
-  border-radius: 30px; /* Optional: Add border-radius for rounded corners */
-  font-family: "Inter", sans-serif;
-  height: 60vh;
-}
-
-.form-group-inline {
-  display: flex;
-}
-@media only screen and (max-width: 600px) {
-  .form-group {
-    flex-direction: column; /* Change to a column layout on smaller screens */
-    align-items: center; /* Center items on smaller screens */
-  }
 }
 
 #menu-toggle {
