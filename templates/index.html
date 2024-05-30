@@ -179,6 +179,20 @@
       </div>
         <div class="container_title">
             <h2><span class="auti">Auti</span><span class="check">Check</span></h2>
+            <h1>Viewport Dimensions</h1>
+    <p id="dimensions"></p>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          function updateDimensions() {
+              var width = window.innerWidth;
+              var height = window.innerHeight;
+              document.getElementById('dimensions').innerText = 'Width: ' + width + 'px, Height: ' + height + 'px';
+          }
+
+          updateDimensions();
+          window.onresize = updateDimensions;
+      });
+  </script>
         </div>
         <div class="container_content mx-auto px-4 sm:px-6 lg:px-8">
             <!-- templates/index.html -->
