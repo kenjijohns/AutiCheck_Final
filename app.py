@@ -29,7 +29,7 @@ app = Flask(__name__, template_folder='templates')
 app.secret_key = 'Proverbs2711'
 
 # Configure the Flask app with the SQLAlchemy instance
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://toddlerASD_aidwhatmix:25b540cda0c6795eda70e2127651638af1c1174c@05j.h.filess.io:3307/toddlerASD_aidwhatmix'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ToddlerASD_strangeas:5919ad83daeb3c9694baae64f212a4ede24abfe7@z1tqq.h.filess.io:3307/ToddlerASD_strangeas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # To suppress a warning
 
 # Initialize the Flask app with the SQLAlchemy instance
