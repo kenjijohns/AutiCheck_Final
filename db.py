@@ -1,11 +1,11 @@
 import mysql.connector
 from mysql.connector import Error
 
-hostname = "05j.h.filess.io"
-database = "toddlerASD_aidwhatmix"
+hostname = "z1tqq.h.filess.io"
+database= "ToddlerASD_strangeas"
 port = "3307"
-username = "toddlerASD_aidwhatmix"
-password = "25b540cda0c6795eda70e2127651638af1c1174c"
+username = "ToddlerASD_strangeas"
+password = "5919ad83daeb3c9694baae64f212a4ede24abfe7"
 sql_file = "toddler_asd_dataset.sql"
 
 try:
